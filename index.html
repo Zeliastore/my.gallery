@@ -3,45 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko Online Kami</title>
+    <title>ZeliapStore - Toko Online Terpercaya</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>TokoOnline</h1>
+            <img src="images/logos/logo.png" alt="ZeliapStore">
         </div>
         <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="#products">Produk</a></li>
-                <li><a href="#about">Tentang Kami</a></li>
-                <li><a href="cart.html">Keranjang (<span id="cart-count">0</span>)</a></li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="product.html">Produk</a>
+            <a href="cart.html">Keranjang</a>
         </nav>
-        <div class="user-actions">
-            <a href="#" class="login-btn">Masuk</a>
-            <a href="#" class="register-btn">Daftar</a>
-        </div>
     </header>
 
     <main>
-        <section class="hero">
-            <h2>Selamat Datang di Toko Online Kami</h2>
-            <p>Temukan produk terbaik dengan harga terbaik</p>
-            <a href="#products" class="cta-btn">Belanja Sekarang</a>
+        <section class="hero-banner">
+            <img src="images/banners/banner1.jpg" alt="Promo Spesial">
         </section>
 
-        <section id="products" class="products">
-            <h2>Produk Kami</h2>
-            <div class="product-grid">
-                <!-- Produk akan dimuat melalui JavaScript -->
-            </div>
+        <section class="product-grid">
+            <!-- Daftar produk akan diisi dengan JavaScript -->
+            <div class="products-container"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2023 TokoOnline. Semua hak dilindungi.</p>
+        <!-- Footer content -->
     </footer>
 
     <script src="js/script.js"></script>
