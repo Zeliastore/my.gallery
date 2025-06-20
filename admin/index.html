@@ -3,37 +3,396 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - ZeliapStore</title>
-    <link rel="stylesheet" href="../css/admin.css">
+    <title>Admin Panel - Zelia Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4d44db;
+            --dark-color: #2a2a2a;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .sidebar .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .sidebar .nav-link.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
+        
+        .main-content {
+            padding: 20px;
+        }
+        
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border: none;
+        }
+        
+        .card-header {
+            background-color: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+        
+        .stat-card {
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .stat-card .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        
+        .stat-card .stat-label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .badge-primary {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+        }
+        
+        .user-profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
 </head>
 <body>
-    <div class="admin-container">
-        <aside class="sidebar">
-            <h2>ZeliapStore Admin</h2>
-            <nav>
-                <a href="index.html" class="active">Dashboard</a>
-                <a href="products.html">Produk</a>
-                <a href="orders.html">Pesanan</a>
-            </nav>
-        </aside>
-
-        <main class="main-content">
-            <h1>Dashboard</h1>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>Total Penjualan</h3>
-                    <p>Rp 12.450.000</p>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3 col-lg-2 d-md-block sidebar collapse bg-primary">
+                <div class="position-sticky pt-3">
+                    <div class="text-center mb-4">
+                        <h4 class="text-white">ZELIA STORE</h4>
+                        <p class="text-white-50 small">Admin Panel</p>
+                    </div>
+                    
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-speedometer2"></i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-cart"></i>
+                                Produk
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-people"></i>
+                                Pelanggan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-receipt"></i>
+                                Pesanan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-tags"></i>
+                                Kategori
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-graph-up"></i>
+                                Laporan
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-sliders"></i>
+                                Pengaturan
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-3 border-top">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <i class="bi bi-box-arrow-left"></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <!-- Statistik lainnya -->
             </div>
-
-            <div class="recent-orders">
-                <h2>Pesanan Terbaru</h2>
-                <!-- Tabel pesanan -->
-            </div>
-        </main>
+            
+            <!-- Main Content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">Dashboard</h1>
+                    <div class="btn-toolbar mb-2 mb-md-0">
+                        <div class="btn-group me-2">
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Hari ini</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Minggu ini</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary">Bulan ini</button>
+                        </div>
+                        <div class="user-profile d-flex align-items-center">
+                            <span class="me-2">Admin Zelia</span>
+                            <img src="https://via.placeholder.com/40" alt="Admin Profile">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="stat-value">1,245</div>
+                                <div class="stat-label">Total Pengunjung</div>
+                                <div class="text-success small mt-1">
+                                    <i class="bi bi-arrow-up"></i> 12% dari kemarin
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="stat-value">Rp 12.450.000</div>
+                                <div class="stat-label">Pendapatan</div>
+                                <div class="text-success small mt-1">
+                                    <i class="bi bi-arrow-up"></i> 8% dari kemarin
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="stat-value">56</div>
+                                <div class="stat-label">Pesanan Baru</div>
+                                <div class="text-danger small mt-1">
+                                    <i class="bi bi-arrow-down"></i> 3% dari kemarin
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <div class="stat-value">24</div>
+                                <div class="stat-label">Produk Habis</div>
+                                <div class="text-warning small mt-1">
+                                    <i class="bi bi-exclamation-triangle"></i> Perlu restock
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Orders -->
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>Pesanan Terbaru</span>
+                        <a href="#" class="btn btn-sm btn-primary">Lihat Semua</a>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>ID Pesanan</th>
+                                        <th>Pelanggan</th>
+                                        <th>Tanggal</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#ORD-2023-001</td>
+                                        <td>Budi Santoso</td>
+                                        <td>12 Jun 2023</td>
+                                        <td>Rp 450.000</td>
+                                        <td><span class="badge bg-warning text-dark">Proses</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Detail</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-2023-002</td>
+                                        <td>Ani Wijaya</td>
+                                        <td>11 Jun 2023</td>
+                                        <td>Rp 1.250.000</td>
+                                        <td><span class="badge bg-success">Selesai</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Detail</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-2023-003</td>
+                                        <td>Rudi Hermawan</td>
+                                        <td>10 Jun 2023</td>
+                                        <td>Rp 780.000</td>
+                                        <td><span class="badge bg-primary">Dikirim</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Detail</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-2023-004</td>
+                                        <td>Siti Rahayu</td>
+                                        <td>09 Jun 2023</td>
+                                        <td>Rp 320.000</td>
+                                        <td><span class="badge bg-danger">Dibatalkan</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Detail</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#ORD-2023-005</td>
+                                        <td>Agus Setiawan</td>
+                                        <td>08 Jun 2023</td>
+                                        <td>Rp 950.000</td>
+                                        <td><span class="badge bg-success">Selesai</span></td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary">Detail</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product and Sales Chart -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                Grafik Penjualan 7 Hari Terakhir
+                            </div>
+                            <div class="card-body">
+                                <div style="height: 300px;">
+                                    <!-- Placeholder for chart -->
+                                    <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                                        <div class="text-center">
+                                            <i class="bi bi-bar-chart" style="font-size: 3rem;"></i>
+                                            <p>Grafik penjualan akan ditampilkan di sini</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                Produk Terlaris
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Tas Wanita Elegant</h6>
+                                            <small class="text-muted">Terjual: 45</small>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">1</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Sepatu Sneakers Pria</h6>
+                                            <small class="text-muted">Terjual: 38</small>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">2</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Jam Tangan Minimalis</h6>
+                                            <small class="text-muted">Terjual: 32</small>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">3</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Dompet Kulit Premium</h6>
+                                            <small class="text-muted">Terjual: 28</small>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">4</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h6 class="mb-1">Kalung Emas 18K</h6>
+                                            <small class="text-muted">Terjual: 25</small>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">5</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
     </div>
 
-    <script src="../js/admin.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Script untuk mengaktifkan menu sidebar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
