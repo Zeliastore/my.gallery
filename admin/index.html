@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>TokoOnline Admin</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="index.html"><i class="icon-dashboard"></i> Dashboard</a></li>
+                    <li><a href="products.html"><i class="icon-products"></i> Produk</a></li>
+                    <li><a href="orders.html"><i class="icon-orders"></i> Pesanan</a></li>
+                    <li><a href="#"><i class="icon-customers"></i> Pelanggan</a></li>
+                    <li><a href="#"><i class="icon-settings"></i> Pengaturan</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="admin-header">
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari...">
+                </div>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <div class="content">
+                <h1>Dashboard</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Pendapatan</h3>
+                        <p class="stat-value">Rp 12,450,000</p>
+                        <p class="stat-change">+15% dari bulan lalu</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Total Pesanan</h3>
+                        <p class="stat-value">48</p>
+                        <p class="stat-change">+8 dari bulan lalu</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Pelanggan Baru</h3>
+                        <p class="stat-value">23</p>
+                        <p class="stat-change">+5 dari bulan lalu</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Produk Terjual</h3>
+                        <p class="stat-value">76</p>
+                        <p class="stat-change">+12 dari bulan lalu</p>
+                    </div>
+                </div>
+
+                <div class="recent-orders">
+                    <h2>Pesanan Terbaru</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID Pesanan</th>
+                                <th>Pelanggan</th>
+                                <th>Tanggal</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-1001</td>
+                                <td>John Doe</td>
+                                <td>12 Jun 2023</td>
+                                <td>Rp 1,299,000</td>
+                                <td><span class="status shipped">Dikirim</span></td>
+                                <td><button class="action-btn">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-1000</td>
+                                <td>Jane Smith</td>
+                                <td>11 Jun 2023</td>
+                                <td>Rp 2,450,000</td>
+                                <td><span class="status processing">Diproses</span></td>
+                                <td><button class="action-btn">Detail</button></td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-999</td>
+                                <td>Robert Johnson</td>
+                                <td>10 Jun 2023</td>
+                                <td>Rp 899,000</td>
+                                <td><span class="status delivered">Selesai</span></td>
+                                <td><button class="action-btn">Detail</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/admin.js"></script>
+</body>
+</html>
